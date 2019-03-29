@@ -9,13 +9,13 @@ function Contact() {
 			<header className="social-media">
 				<div className="social-media-container">
 					<a href="mailto: jrunin@gmail.com">
-						<img src={email} alt="email" />
+						<img src={email} alt="email" title="email" />
 					</a>
 					<a href="https://github.com/irosgrim">
-						<img src={git} alt="git hub" />
+						<img src={git} alt="git hub" title="git hub" />
 					</a>
 					<a href="https://www.linkedin.com/in/ioan-rosgrim-933439180/">
-						<img src={linkedin} alt="linked in" />
+						<img src={linkedin} alt="linked in" title="linked in" />
 					</a>
 				</div>
 			</header>

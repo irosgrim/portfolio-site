@@ -7,40 +7,27 @@ class Projects extends Component {
 				<header>
 					<h2>Projects</h2>
 				</header>
-				<article className="projects-item">
-					<div className="project-description">
-						<h3>First project</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Et qui
-							doloribus reprehenderit odit nihil unde rerum aspernatur tempore,
-							ea quod cumque iusto officiis harum beatae corporis. Autem
-							assumenda cupiditate id!
-						</p>
-						<ul>
-							<li>one</li>
-							<li>two</li>
-							<li>three</li>
-						</ul>
-					</div>
-					<figure className="project-image">image</figure>
-				</article>
-				<article className="projects-item">
-					<div className="project-description">
-						<h3>Second project</h3>
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Et qui
-							doloribus reprehenderit odit nihil unde rerum aspernatur tempore,
-							ea quod cumque iusto officiis harum beatae corporis. Autem
-							assumenda cupiditate id!
-						</p>
-						<ul>
-							<li>one</li>
-							<li>two</li>
-							<li>three</li>
-						</ul>
-					</div>
-					<figure className="project-image">image</figure>
-				</article>
+
+				{this.props.projects.map((project, index) => {
+					return (
+						<article className="projects-item" key={index}>
+							<div
+								className="project-description"
+								dangerouslySetInnerHTML={{ __html: project.acf.project }}
+							/>
+							<figure>
+								<a href={project.acf.project_link}>
+									<img
+										src={project.acf.image.url}
+										alt={project.acf.image.alt}
+										className="project-image"
+									/>
+								</a>
+							</figure>
+						</article>
+					);
+				})}
+
 				<div id="about" />
 				<br />
 				<br />

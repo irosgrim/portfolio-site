@@ -4,20 +4,22 @@ import arrow from '../imgs/arrow.svg';
 class Checkmyworkbtn extends Component {
 	render() {
 		return (
-			<button className="checkMyWork-btn" id="checkMyWork">
-				{this.props.children}
-				<img
-					src={arrow}
-					alt="arrow icon"
-					style={{
-						marginLeft: '15px',
-						marginTop: '2px',
-						width: '21px',
-						height: '20px',
-						float: 'right'
-					}}
-				/>
-			</button>
+			<form action="https://github.com/irosgrim">
+				<button className="checkMyWork-btn" id="checkMyWork" type="submit">
+					{this.props.children}
+					<img
+						src={arrow}
+						alt="arrow icon"
+						style={{
+							marginLeft: '15px',
+							marginTop: '2px',
+							width: '21px',
+							height: '20px',
+							float: 'right'
+						}}
+					/>
+				</button>
+			</form>
 		);
 	}
 }

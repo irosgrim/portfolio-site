@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Aboutpicture from './Aboutpicture';
 import Braggingbar from './Braggingbar';
 import hat from '../imgs/hat.svg';
 
 class About extends Component {
+	constructor() {
+		super();
+		this.state = { loading: true, about: [] };
+	}
+	componentDidMount() {
+		axios('http://tattoosbyion.com/wp-json/wp/v2/about').then(response => {
+			console.log(response.data);
+			this.setState({ loading: false, about: response.data });
+		});
+	}
 	render() {
+		console.log(this.state.about.acf);
 		return (
 			<section className="about-section">
 				<div className="separator" />
 				<Aboutpicture />
 				<article>
-					<p>
-						Passionate and dedicated web developer with high knowledge of
-						problem solving, visual UI design, UX design, user-centered design
-						principles and methods, product development and front-end
-						development.
-					</p>
-					<br />
-					<br />
-					<p>
-						For the front end development I use <strong>HTML5, CSS3</strong> and{' '}
-						<strong>Javascript</strong> and for the back end development I use{' '}
-						<strong>Node.js</strong> and
-						<strong>MongoDB</strong> or <strong>SQL</strong>. My favorite
-						Javascript library is <strong>React.js</strong>
-						although I have experience with <strong>Vue.js</strong> and{' '}
-						<strong>JQuery</strong> too.
-					</p>
-					<br />
-					<br />
+					{this.state.loading || (
+						<div
+							dangerouslySetInnerHTML={{
+								__html: this.state.about[0].acf.text_body
+							}}
+						/>
+					)}
 					<h3 style={{ color: '#ffffff' }}>Education</h3>
 					<ul>
 						<li>

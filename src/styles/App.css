@@ -23,6 +23,10 @@
   padding: 0;
 }
 
+ul {
+  list-style-type: symbols('-')
+}
+
 /*----------typography----------*/
 
 html {
@@ -246,6 +250,16 @@ button {
   margin: 0 auto;
 }
 
+.projects a {
+  color: #034E5D;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.projects a:hover {
+  color: #2E95A4;
+}
+
 .projects header {
   border-top: 5px solid #DDE7EF;
 }
@@ -258,9 +272,53 @@ button {
 .projects-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   padding: 10px 60px;
   margin: 50px auto;
   background-color: #ffffff;
+}
+
+.project-description {
+  flex: 1;
+  min-width: 250px;
+}
+
+.project-description h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--main-textcolor);
+  margin-bottom: 30px;
+}
+
+.project-description ul {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.project-description li {
+  padding-left: 10px;
+}
+
+.project-description li:before {
+  content: "- ";
+}
+
+.projects-item figure {
+  flex: 1;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.project-image {
+  max-width: 350px;
+  border-radius: 5px;
+  height: auto;
+  transition: 0.3s;
+}
+
+.project-image:hover {
+  transform: scale(1.1);
 }
 
 .mobile-button {

@@ -8,16 +8,25 @@ import Whatido from './components/Whatido';
 import Progressbar from './components/Progressbar';
 import Projects from './components/Projects';
 
+import axios from 'axios';
+
 import './styles/App.css';
 
 class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			navbar_change_color: 'transparent'
+			navbar_change_color: 'transparent',
+			projects: []
 		};
 	}
 	componentDidMount() {
+		axios(
+			'http://tattoosbyion.com/wp-json/wp/v2/projects?orderby=menu_order&order=asc'
+		).then(response => {
+			this.setState({ projects: response.data });
+		});
+
 		window.onscroll = () => {
 			window.pageYOffset > 50
 				? this.setState({
@@ -35,7 +44,7 @@ class App extends Component {
 				<Header handlenavbarmove={this.state.navbar_change_color} />
 				<Hello />
 				<Whatido />
-				<Projects />
+				<Projects projects={this.state.projects} />
 				<About />
 				<Contact />
 				<Footer />
