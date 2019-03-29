@@ -8,9 +8,15 @@ function Contact() {
 		<section className="contact-section">
 			<header className="social-media">
 				<div className="social-media-container">
-					<img src={email} alt="email" />
-					<img src={git} alt="git hub" />
-					<img src={linkedin} alt="linked in" />
+					<a href="mailto: jrunin@gmail.com">
+						<img src={email} alt="email" />
+					</a>
+					<a href="https://github.com/irosgrim">
+						<img src={git} alt="git hub" />
+					</a>
+					<a href="https://www.linkedin.com/in/ioan-rosgrim-933439180/">
+						<img src={linkedin} alt="linked in" />
+					</a>
 				</div>
 			</header>
 			<div className="contact-text">

@@ -26,6 +26,7 @@
 /*----------typography----------*/
 
 html {
+  scroll-behavior: smooth;
   font-family: var(--main-font);
   font-size: var(--normal-textsize);
   color: var(--main-textcolor);
@@ -337,6 +338,11 @@ button {
   text-align: center;
 }
 
+.round-picture p {
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
 .round-picture img {
   border: 5px solid #ffffff;
   border-radius: 50%;
@@ -344,6 +350,8 @@ button {
 
 .about-name {
   color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .bragging-bar {
@@ -386,6 +394,16 @@ button {
   margin: 20px 20px;
   height: 60px;
   width: auto;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.social-media-container img:hover {
+  transform: scale(1.3);
+}
+
+.social-media-container img:active {
+  transform: scale(1.3);
 }
 
 .contact-text {

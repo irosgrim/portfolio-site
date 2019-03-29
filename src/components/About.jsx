@@ -29,7 +29,7 @@ class About extends Component {
 					</p>
 					<br />
 					<br />
-					<h2>Education</h2>
+					<h3 style={{ color: '#ffffff' }}>Education</h3>
 					<ul>
 						<li>
 							<img
