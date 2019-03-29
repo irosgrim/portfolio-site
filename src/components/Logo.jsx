@@ -4,7 +4,9 @@ class Logo extends Component {
 	render() {
 		return (
 			<div className="logo">
-				<img src={logo} alt="logo" className="logo" />
+				<a href="#home">
+					<img src={logo} alt="logo" className="logo" />
+				</a>
 			</div>
 		);
 	}
