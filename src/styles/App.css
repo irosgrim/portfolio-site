@@ -335,7 +335,7 @@ button {
 }
 
 .mobile-menu {
-  display: block;
+  display: none;
 }
 
 .visible {
