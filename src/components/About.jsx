@@ -10,13 +10,11 @@ class About extends Component {
 		this.state = { loading: true, about: [] };
 	}
 	componentDidMount() {
-		axios('http://tattoosbyion.com/wp-json/wp/v2/about').then(response => {
-			console.log(response.data);
+		axios('https://tattoosbyion.com/wp-json/wp/v2/about').then(response => {
 			this.setState({ loading: false, about: response.data });
 		});
 	}
 	render() {
-		console.log(this.state.about.acf);
 		return (
 			<section className="about-section">
 				<div className="separator" />

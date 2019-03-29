@@ -12,7 +12,10 @@ class Header extends Component {
 				<header className="main-header">
 					<Logo />
 					<Navbar />
-					<Mobilemenu />
+					<Mobilemenu
+						togglemobilemenu={this.props.togglemobilemenu}
+						showmobilemenu={this.props.showmobilemenu}
+					/>
 				</header>
 			</div>
 		);

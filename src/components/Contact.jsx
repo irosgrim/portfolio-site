@@ -29,11 +29,11 @@ function Contact() {
 			<div className="contact-form">
 				<div className="input">
 					<label htmlFor="text">Name</label>
-					<input type="text" />
+					<input type="text" name="text" id="text" />
 				</div>
 				<div className="input">
 					<label htmlFor="email">Email</label>
-					<input type="email" />
+					<input type="email" name="email" id="email" />
 				</div>
 				<div className="message-input">
 					<label htmlFor="message">Message</label>

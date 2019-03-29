@@ -4,6 +4,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Hello from './components/Hello';
+import Mobilenav from './components/Mobilenav';
 import Whatido from './components/Whatido';
 import Progressbar from './components/Progressbar';
 import Projects from './components/Projects';
@@ -16,13 +17,15 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
+			showmobilemenu: false,
 			navbar_change_color: 'transparent',
 			projects: []
 		};
+		this.handleToggleMobileMenu = this.handleToggleMobileMenu.bind(this);
 	}
 	componentDidMount() {
 		axios(
-			'http://tattoosbyion.com/wp-json/wp/v2/projects?orderby=menu_order&order=asc'
+			'https://tattoosbyion.com/wp-json/wp/v2/projects?orderby=menu_order&order=asc'
 		).then(response => {
 			this.setState({ projects: response.data });
 		});
@@ -37,11 +40,21 @@ class App extends Component {
 				  });
 		};
 	}
+	handleToggleMobileMenu() {
+		this.setState({ showmobilemenu: !this.state.showmobilemenu });
+	}
 	render() {
 		return (
 			<div className="App">
 				<Progressbar />
-				<Header handlenavbarmove={this.state.navbar_change_color} />
+				<Header
+					handlenavbarmove={this.state.navbar_change_color}
+					togglemobilemenu={this.handleToggleMobileMenu}
+				/>
+				<Mobilenav
+					showmobilemenu={this.state.showmobilemenu}
+					togglemobilemenu={this.handleToggleMobileMenu}
+				/>
 				<Hello />
 				<Whatido />
 				<Projects projects={this.state.projects} />
