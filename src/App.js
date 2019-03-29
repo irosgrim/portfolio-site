@@ -1,28 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Hello from './components/Hello';
+import Whatido from './components/Whatido';
+import Progressbar from './components/Progressbar';
+import Projects from './components/Projects';
+
+import './styles/App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor() {
+		super();
+		this.state = {
+			navbar_change_color: 'transparent'
+		};
+	}
+	componentDidMount() {
+		window.onscroll = () => {
+			window.pageYOffset > 50
+				? this.setState({
+						navbar_change_color: 'rgba(251, 251, 251, 0.986)'
+				  })
+				: this.setState({
+						navbar_change_color: 'rgba(215, 227, 245, 0)'
+				  });
+		};
+	}
+	render() {
+		return (
+			<div className="App">
+				<Progressbar />
+				<Header handlenavbarmove={this.state.navbar_change_color} />
+				<Hello />
+				<Whatido />
+				<Projects />
+				<About />
+				<Contact />
+				<Footer />
+			</div>
+		);
+	}
 }
-
 export default App;
