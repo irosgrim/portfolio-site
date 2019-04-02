@@ -19,13 +19,22 @@ function Contact() {
     const handleMessageChange = e => {
         setMessage(e.target.value);
     };
-
+    const encode = data => {
+        return Object.keys(data)
+            .map(
+                key =>
+                    encodeURIComponent(key) +
+                    '=' +
+                    encodeURIComponent(data[key])
+            )
+            .join('&');
+    };
     const handleSubmit = e => {
         const state = { name, email, message };
         fetch('/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: encodeURI({ 'form-name': 'contact', ...state })
+            body: encode({ 'form-name': 'contact', ...state })
         })
             .then(() => {
                 setContactModalVisible(!contactModalVisible);
