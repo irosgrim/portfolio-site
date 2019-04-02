@@ -1,16 +1,69 @@
-import React from 'react';
-import email from '../imgs/email_icon.svg';
+import React, { useState } from 'react';
+import emailIcon from '../imgs/email_icon.svg';
 import git from '../imgs/git_icon.svg';
 import linkedin from '../imgs/linkedin_icon.svg';
 
 function Contact() {
+    const [contactModalVisible, setContactModalVisible] = useState(false);
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleNameChange = e => {
+        setName(e.target.value);
+    };
+    const handleEmailChange = e => {
+        setEmail(e.target.value);
+    };
+    const handleMessageChange = e => {
+        setMessage(e.target.value);
+    };
+
+    const handleSubmit = e => {
+        const state = { name, email, message };
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encodeURI({ 'form-name': 'contact', ...state })
+        })
+            .then(() => {
+                setContactModalVisible(!contactModalVisible);
+                setName('');
+                setEmail('');
+                setMessage('');
+            })
+            .catch(error => console.log(error));
+
+        e.preventDefault();
+    };
+
     return (
         <section className="contact-section">
-            <div className="contact-modal">div.button</div>
+            {contactModalVisible && (
+                <div
+                    className="contact-modal"
+                    onClick={e => {
+                        if (
+                            e.target.className === 'contact-modal' ||
+                            e.target.className === 'btn messagesent-btn'
+                        ) {
+                            setContactModalVisible(!contactModalVisible);
+                        } else {
+                            return null;
+                        }
+                    }}>
+                    <div className="confirm-window">
+                        <h2>Message sent!</h2>
+                        <p>I will get back to you as soon as I can</p>
+                        <button className="btn messagesent-btn">ok</button>
+                    </div>
+                </div>
+            )}
             <header className="social-media">
                 <div className="social-media-container">
                     <a href="mailto: irosgrim@ionwebservices.dev">
-                        <img src={email} alt="email" title="email" />
+                        <img src={emailIcon} alt="email" title="email" />
                     </a>
                     <a href="https://github.com/irosgrim">
                         <img src={git} alt="git hub" title="git hub" />
@@ -27,16 +80,30 @@ function Contact() {
                     media or the form bellow:
                 </p>
             </div>
-            <form name="contact" method="POST" data-netlify="true">
+            <form onSubmit={handleSubmit}>
                 <div className="contact-form">
                     <input type="hidden" name="form-name" value="contact" />
                     <div className="input">
                         <label htmlFor="name">Name</label>
-                        <input type="text" name="name" id="name" required />
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            required
+                            value={name}
+                            onChange={handleNameChange}
+                        />
                     </div>
                     <div className="input">
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" required />
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            required
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
                     </div>
                     <div className="message-input">
                         <label htmlFor="message">Message</label>
@@ -46,6 +113,8 @@ function Contact() {
                             cols="30"
                             rows="10"
                             required
+                            value={message}
+                            onChange={handleMessageChange}
                         />
                     </div>
 

@@ -78,6 +78,10 @@ a {
   color: #FFFFFF;
 }
 
+.btn:focus {
+  outline: none;
+}
+
 .checkMyWork-btn {
   position: relative;
   border: none;
@@ -92,10 +96,6 @@ a {
   border-radius: 30px;
 }
 
-.checkMyWork-btn:focus {
-  outline: none;
-}
-
 .send-btn {
   width: 150px;
   height: 50px;
@@ -103,8 +103,12 @@ a {
   font-size: 16px;
 }
 
-.send-btn:focus {
-  outline: none;
+.messagesent-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 16px;
+  margin-top: 20px;
 }
 
 .progressbar-bg {
@@ -500,6 +504,35 @@ button {
   width: 100%;
   height: 700px;
   background-repeat: no-repeat;
+}
+
+.contact-modal {
+  position: fixed;
+  z-index: 43;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.confirm-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  height: 200px;
+  background-color: #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.confirm-window h2 {
+  margin-bottom: 20px;
 }
 
 .social-media {
