@@ -6,6 +6,7 @@ import linkedin from '../imgs/linkedin_icon.svg';
 function Contact() {
     return (
         <section className="contact-section">
+            <div className="contact-modal">div.button</div>
             <header className="social-media">
                 <div className="social-media-container">
                     <a href="mailto: irosgrim@ionwebservices.dev">
@@ -48,7 +49,7 @@ function Contact() {
                         />
                     </div>
 
-                    <button className="send-btn" type="submit">
+                    <button className="btn send-btn" type="submit">
                         send
                     </button>
                 </div>

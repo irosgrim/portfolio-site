@@ -72,6 +72,12 @@ a {
   width: auto;
 }
 
+.btn {
+  background: rgba(32, 32, 141, 0.49);
+  box-shadow: 0 12px 15px 5px rgba(132, 131, 184, 0.33);
+  color: #FFFFFF;
+}
+
 .checkMyWork-btn {
   position: relative;
   border: none;
@@ -84,11 +90,20 @@ a {
   margin-top: 50px;
   height: 60px;
   border-radius: 30px;
-  background: rgba(32, 32, 141, 0.49);
-  box-shadow: 0 12px 15px 5px rgba(132, 131, 184, 0.33);
 }
 
 .checkMyWork-btn:focus {
+  outline: none;
+}
+
+.send-btn {
+  width: 150px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+.send-btn:focus {
   outline: none;
 }
 
@@ -587,16 +602,6 @@ textarea {
   outline: none;
   font-size: 1.37rem;
   font-weight: 300;
-}
-
-.send-btn {
-  width: 150px;
-  height: 50px;
-  border-radius: 25px;
-  background: rgba(32, 32, 141, 0.49);
-  box-shadow: 0 12px 15px 5px rgba(132, 131, 184, 0.33);
-  font-size: 16px;
-  color: #FFFFFF;
 }
 
 footer {

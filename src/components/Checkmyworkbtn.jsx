@@ -6,7 +6,7 @@ class Checkmyworkbtn extends Component {
         return (
             <form action="https://github.com/irosgrim">
                 <button
-                    className="checkMyWork-btn"
+                    className="btn checkMyWork-btn"
                     id="checkMyWork"
                     type="submit">
                     {this.props.children}
