@@ -604,6 +604,10 @@ footer {
   background-color: #131E29;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 /*---------------media queries----------------*/
 
 @media (min-width: 200px) and (max-width: 550px) {

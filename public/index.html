@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-		<meta name="description" content="Ion Rosgrim, web development portfolio" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
-		<meta name="theme-color" content="#000000" />
-		<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-		<link
-			href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat:400,400i,500,700"
-			rel="stylesheet"
-		/>
-		<title>Ion Rosgrim, Front end developer</title>
-	</head>
-	<body>
-		<noscript>You need to enable JavaScript to run this app.</noscript>
-		<div id="root"></div>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+        <meta
+            name="description"
+            content="Ion Rosgrim, web development portfolio"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta name="theme-color" content="#000000" />
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat:400,400i,500,700"
+            rel="stylesheet"
+        />
+        <title>Ion Rosgrim, Front end developer</title>
+    </head>
+    <body>
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+            <input type="text" name="name" />
+            <input type="email" name="email" />
+            <textarea name="message"></textarea>
+        </form>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+    </body>
 </html>

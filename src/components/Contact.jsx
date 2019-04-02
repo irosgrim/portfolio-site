@@ -8,7 +8,7 @@ function Contact() {
         <section className="contact-section">
             <header className="social-media">
                 <div className="social-media-container">
-                    <a href="mailto: jrunin@gmail.com">
+                    <a href="mailto: irosgrim@ionwebservices.dev">
                         <img src={email} alt="email" title="email" />
                     </a>
                     <a href="https://github.com/irosgrim">
@@ -26,21 +26,33 @@ function Contact() {
                     media or the form bellow:
                 </p>
             </div>
-            <div className="contact-form">
-                <div className="input">
-                    <label htmlFor="text">Name</label>
-                    <input type="text" name="text" id="text" />
-                </div>
-                <div className="input">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" />
-                </div>
-                <div className="message-input">
-                    <label htmlFor="message">Message</label>
-                    <textarea name="message" id="message" cols="30" rows="10" />
-                </div>
 
-                <button className="send-btn">send</button>
+            <div className="contact-form">
+                <form name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <div className="input">
+                        <label htmlFor="name">Name</label>
+                        <input type="text" name="name" id="name" required />
+                    </div>
+                    <div className="input">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="email" id="email" required />
+                    </div>
+                    <div className="message-input">
+                        <label htmlFor="message">Message</label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            cols="30"
+                            rows="10"
+                            required
+                        />
+                    </div>
+
+                    <button className="send-btn" type="submit">
+                        send
+                    </button>
+                </form>
             </div>
         </section>
     );
