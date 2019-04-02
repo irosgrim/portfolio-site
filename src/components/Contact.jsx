@@ -26,9 +26,8 @@ function Contact() {
                     media or the form bellow:
                 </p>
             </div>
-
-            <div className="contact-form">
-                <form name="contact" method="POST" data-netlify="true">
+            <form name="contact" method="POST" data-netlify="true">
+                <div className="contact-form">
                     <input type="hidden" name="form-name" value="contact" />
                     <div className="input">
                         <label htmlFor="name">Name</label>
@@ -52,8 +51,8 @@ function Contact() {
                     <button className="send-btn" type="submit">
                         send
                     </button>
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
     );
 }
