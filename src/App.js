@@ -27,7 +27,6 @@ class App extends Component {
         axios(
             'projects.json'
         ).then(response => {
-            console.log(response.data.articles);
             this.setState({ projects: response.data.articles });
         });
 
