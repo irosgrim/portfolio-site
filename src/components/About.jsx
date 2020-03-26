@@ -10,7 +10,7 @@ class About extends Component {
         this.state = { loading: true, about: [] };
     }
     componentDidMount() {
-        axios('https://tattoosbyion.com/wp-json/wp/v2/about').then(response => {
+        axios('about.json').then(response => {
             this.setState({ loading: false, about: response.data });
         });
     }
@@ -23,7 +23,7 @@ class About extends Component {
                     {this.state.loading || (
                         <div
                             dangerouslySetInnerHTML={{
-                                __html: this.state.about[0].acf.text_body
+                                __html: this.state.about.text
                             }}
                         />
                     )}

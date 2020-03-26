@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 class Projects extends Component {
     render() {
@@ -11,17 +11,39 @@ class Projects extends Component {
                 {this.props.projects.map((project, index) => {
                     return (
                         <article className="projects-item" key={index}>
-                            <div
-                                className="project-description"
-                                dangerouslySetInnerHTML={{
-                                    __html: project.acf.project
-                                }}
-                            />
+                            <div className="project-description">
+                            <h3>{project.title}</h3>
+                                <div
+                                    dangerouslySetInnerHTML={{
+                                        __html: project.text
+                                    }}
+                                />
+                                <br/>
+                                <p>
+                                    {project.sourceCode.text}
+                                </p>
+                                <a href={project.sourceCode.link}>{project.sourceCode.linkText}</a>
+                               {project.stack.length > 0 && (
+                                    <Fragment>
+                                        <h3>Tools used:</h3>
+                                        <ul>
+                                            {
+                                            project.stack.map((tool, index) => {
+                                                    return (
+                                                        <li key={index}>{tool}</li>
+                                                    )
+                                                }
+                                            )
+                                            }
+                                        </ul>
+                                    </Fragment>
+                            )}
+                            </div>
                             <figure>
-                                <a href={project.acf.project_link}>
+                                <a href={project.articleLink}>
                                     <img
-                                        src={project.acf.image.url}
-                                        alt={project.acf.image.alt}
+                                        src={project.imageUrl}
+                                        alt={project.imageAlt}
                                         className="project-image"
                                     />
                                 </a>

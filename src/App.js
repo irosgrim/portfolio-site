@@ -25,9 +25,10 @@ class App extends Component {
     }
     componentDidMount() {
         axios(
-            'https://tattoosbyion.com/wp-json/wp/v2/projects?orderby=menu_order&order=asc'
+            'projects.json'
         ).then(response => {
-            this.setState({ projects: response.data });
+            console.log(response.data.articles);
+            this.setState({ projects: response.data.articles });
         });
 
         window.onscroll = () => {
